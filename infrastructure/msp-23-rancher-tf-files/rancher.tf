@@ -53,7 +53,7 @@ resource "aws_alb_target_group" "rancher-tg" {
   name = var.tg-name
   port = 80
   protocol = "HTTP"
-  vpc_id = "vpc-f52d178f"
+  vpc_id = "vpc-0e10bf6ff93dab93e"
   target_type = "instance"
 
   health_check {
@@ -81,7 +81,7 @@ resource "aws_lb" "rancher-alb" {
   ip_address_type = "ipv4"
   internal = false
   load_balancer_type = "application"
-  subnets = ["subnet-c41ba589", "subnet-3ccd235a", "subnet-077c9758"]
+  subnets = ["subnet-02ee252b1b677f1d7", "subnet-0312961eadac97be3", "subnet-0cf0056a10d4a65ec"]
   security_groups = [aws_security_group.rancher-alb.id]
 }
 
@@ -181,12 +181,12 @@ resource "aws_route53_record" "arecord" {
   }
 }
 
-resource "null_resource" "privatekey" {
-  depends_on = [tls_private_key.example]
-  provisioner "local-exec" {
-    command = "terraform output -raw private > ~/.ssh/${var.mykey}.pem"
-  }
-    provisioner "local-exec" {
-      command = "cd ~/.ssh/ && chmod 400 ${var.mykey}.pem"
-    }
-}
+# resource "null_resource" "privatekey" {
+#   depends_on = [tls_private_key.example]
+#   provisioner "local-exec" {
+#     command = "terraform output -raw private > ~/.ssh/firstkey_pet.pem"
+#   }
+# #     provisioner "local-exec" {
+# #       command = "cd /c/Users/yasin/.ssh && chmod 400 firstkey_pet.pem"
+# #     }
+# # }

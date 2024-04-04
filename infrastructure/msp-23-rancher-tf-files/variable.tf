@@ -4,7 +4,7 @@ variable "region" {
   default = "us-east-1"
 }
 variable "mykey" {
-  default = "petclinic-ranchertr"
+  default = "firstkey_pet"
 }
 variable "tags" {
   default = "petclinic-rancher-server"
@@ -22,15 +22,15 @@ variable "secgrname" {
 }
 
 variable "domain-name" {
-  default = "*.clarusway.us"
+  default = "yasinkartal.com"
 }
 
 variable "rancher-subnet" {
-  default = "subnet-3ccd235a"
+  default = "subnet-02ee252b1b677f1d7"
 }
 
 variable "hostedzone" {
-  default = "clarusway.us"
+  default = "yasinkartal.com"
 }
 
 variable "tg-name" {
